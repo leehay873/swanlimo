@@ -247,10 +247,10 @@ export default function Example() {
                 </Link>
 
                 <Link href="/services" className="custom-link">
-                  Services
+                  our fleets
                 </Link>
                 <Link href="/deals" className="custom-link">
-                  our fleets
+                states we cover
                 </Link>
                 <Link href="/about-us" className="custom-link">
                   About
