@@ -1,0 +1,281 @@
+"use client";
+import { useState } from "react";
+import { Dialog, Popover } from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { usePathname } from "next/navigation";
+import headerlogo from "../../../public/logo/Logo-01.svg";
+import Image from "next/image";
+
+import {
+  BookOpenIcon,
+  GlobeAltIcon,
+  UserGroupIcon,
+  VideoCameraIcon,
+} from "@heroicons/react/24/outline";
+import Link from "next/link";
+
+const INDIVIDUAL = [
+  { name: "Open Carrier", href: "#" },
+  { name: "Enclosed Carrier", href: "#" },
+  { name: "Classic Car Shipping", href: "#" },
+  { name: "Collector Car Shipping", href: "#" },
+  { name: "Exotic Automobile Shipping", href: "#" },
+  { name: "Seasonal Relocation – Snowbirds", href: "#" },
+  { name: "Military Car Shipping", href: "#" },
+  { name: "Student Car Shipping", href: "#" },
+  { name: "Motorcycle Shipping", href: "#" },
+  { name: "Alaska Car Shipping", href: "#" },
+  { name: "ATV / UTV Shipping", href: "#" },
+  { name: "Golf Cart Shipping", href: "#" },
+  { name: "Hawaii Car Shipping", href: "#" },
+  { name: "Travel Healthcare", href: "#" },
+  { name: "Electric Vehicle Shipping", href: "#" },
+];
+
+const BUSINESS = [
+  { name: "Dealer Relocation", href: "#", icon: UserGroupIcon },
+  { name: "Auction, Ebay & Salvage Cars", href: "#", icon: GlobeAltIcon },
+  { name: "Fleet Management", href: "#", icon: BookOpenIcon },
+  { name: "Corporate Relocation", href: "#", icon: VideoCameraIcon },
+];
+
+const SPECIALIZED = [
+  { name: "Oversized & Heavy Equipment", href: "#", icon: UserGroupIcon },
+  { name: "Equipment Shipping", href: "#", icon: GlobeAltIcon },
+  { name: "Campers, Mobile Homes & RVs", href: "#", icon: BookOpenIcon },
+  { name: "Boat & Yacht Shipping", href: "#", icon: VideoCameraIcon },
+  { name: "Power Only Shipping", href: "#", icon: VideoCameraIcon },
+  { name: "Food Truck Shipping", href: "#", icon: VideoCameraIcon },
+  { name: "Trailer Shipping", href: "#", icon: VideoCameraIcon },
+  { name: "Tractor Shipping", href: "#", icon: VideoCameraIcon },
+  { name: "Auto & Asset Recovery Transport", href: "#", icon: VideoCameraIcon },
+  { name: "Intermodal Container Shipping", href: "#", icon: VideoCameraIcon },
+  { name: "Horse Trailer Shipping", href: "#", icon: VideoCameraIcon },
+  { name: "Snow Removal Equipment Shipping", href: "#", icon: VideoCameraIcon },
+  { name: "School Bus Shipping", href: "#", icon: VideoCameraIcon },
+  { name: "Cargo Van Shipping", href: "#", icon: VideoCameraIcon },
+];
+
+const resources = [
+  { name: "Community", href: "#", icon: UserGroupIcon },
+  { name: "Partners", href: "#", icon: GlobeAltIcon },
+  { name: "Guides", href: "#", icon: BookOpenIcon },
+  { name: "Webinars", href: "#", icon: VideoCameraIcon },
+];
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+
+export default function Example() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  return (
+    <header className="relative  isolate z-10 ">
+      <nav
+        className="mx-auto  flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        aria-label="Global"
+      >
+        <div className="flex lg:flex-3">
+          <Link href="/" className="-m-1.5 p-1.5">
+            {/* <Image
+              className="h-18 w-auto"
+              style={{ height: "60px" }}
+              src={headerlogo}
+              alt=""
+            /> */}
+          </Link>
+        </div>
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+          </button>
+        </div>
+        <Popover.Group className="hidden lg:flex lg:gap-x-10">
+          <Link
+            href="/how-to-ship-a-car"
+            className={
+              pathname === "/how-to-ship-a-car"
+                ? "custom-link-active"
+                : "custom-link"
+            }
+            style={{ position: "relative" }}
+          >
+            Home
+          </Link>
+
+          <Link
+            href="/services"
+            className={
+              pathname === "/services" ? "custom-link-active" : "custom-link"
+            }
+          >
+            our fleets
+          </Link>
+          <Link
+            href="/deals"
+            className={
+              pathname === "/deals" ? "custom-link-active" : "custom-link"
+            }
+            style={{ position: "relative" }}
+          >
+            areas we cover
+          </Link>
+
+          <Link
+            href="/about-us"
+            className={
+              pathname === "/about-us" ? "custom-link-active" : "custom-link"
+            }
+          >
+            About
+          </Link>
+          {/* <Link
+            href="/blog"
+            className={
+              pathname === "/blog" ? "custom-link-active" : "custom-link"
+            }
+          >
+            Blog
+          </Link> */}
+          <Link
+            href="/contact-us"
+            className={
+              pathname === "/contact-us" ? "custom-link-active" : "custom-link"
+            }
+          >
+            Contact Us
+          </Link>
+        </Popover.Group>
+        <div className="hidden lg:flex lg:flex-4   lg:justify-end">
+          <Link href="/get-a-quote">
+            <button type="button" className="flex items-center getFreeQuotebtn">
+              <svg
+                width="30"
+                height="31"
+                viewBox="0 0 30 31"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="quote-icon 1" clip-path="url(#clip0_1552_493)">
+                  <g id="Group">
+                    <path
+                      id="Vector"
+                      d="M9.05588 0.89767C8.51009 1.0429 8.09215 1.38178 7.8463 1.87072L7.70371 2.16118L7.67912 4.38323L7.65454 6.60527L7.35952 6.68757C6.73998 6.86184 5.75166 7.37984 5.02395 7.91235C4.39949 8.36741 3.45543 9.42276 3.03748 10.1392C2.59004 10.909 2.28027 11.7174 2.08851 12.6421C2.01967 12.9616 2 13.2859 2 14.1186C2.00492 15.1255 2.00983 15.2175 2.14259 15.7403C2.4622 16.999 2.83589 17.8075 3.53902 18.7418C4.14381 19.5406 5.12229 20.3877 5.95818 20.838C6.44004 21.0994 6.54821 21.1526 6.84323 21.2736C7.02024 21.3463 7.27593 21.4382 7.41852 21.477L7.6742 21.5544L7.68895 25.1949L7.70371 28.8354L7.8463 29.1258C7.92989 29.2856 8.11673 29.5373 8.26916 29.6922C8.50026 29.9149 8.60351 29.9827 8.87887 30.065C9.21322 30.1667 9.24272 30.1667 16.5395 30.1667C22.7939 30.1667 23.8806 30.157 23.9937 30.0989C24.0674 30.0602 25.1393 29.029 26.3735 27.8091C28.2862 25.9211 28.6255 25.5677 28.6501 25.4224C28.6648 25.3304 28.6697 20.044 28.6648 13.6829L28.6501 2.11277L28.5271 1.87072C28.3895 1.59478 27.9863 1.17361 27.7355 1.04774C27.3028 0.825054 27.588 0.829896 18.1769 0.834737C11.2587 0.834737 9.22797 0.84926 9.05588 0.89767ZM27.2045 2.27737L27.3471 2.41776V3.45374V4.48489H18.1769H9.00671V3.50215C9.00671 2.44681 9.03621 2.30642 9.27223 2.19023C9.34106 2.16118 12.3748 2.14182 18.2162 2.14182L27.0619 2.13698L27.2045 2.27737ZM27.3471 15.1594V24.5268L25.8621 24.551L24.3723 24.5752L24.0822 24.7205C23.6987 24.9093 23.3692 25.2336 23.1922 25.5919L23.0447 25.8823L23.03 27.3443L23.0103 28.8112H16.1511H9.29189L9.1493 28.6708L9.00671 28.5304V25.1707V21.8158L9.83276 21.811C10.4572 21.8062 10.7965 21.782 11.2439 21.6997C12.3109 21.506 13.4025 21.0752 14.2728 20.5039C14.7694 20.1747 14.9071 20.0634 15.4283 19.5599L15.8217 19.1726L17.7983 19.1775C19.3816 19.1775 19.8044 19.1678 19.9323 19.1097C20.4141 18.9112 20.5075 18.34 20.1191 17.9914C20.0158 17.8994 19.9323 17.8946 18.4522 17.8801C17.5967 17.8752 16.869 17.8559 16.8346 17.8462C16.7805 17.8268 16.7903 17.7881 16.8641 17.6671C17.2082 17.1103 17.6114 15.871 17.695 15.0868L17.7344 14.7479L18.8702 14.7237C19.9224 14.6995 20.0208 14.6898 20.1191 14.6027C20.4535 14.3025 20.4387 13.8378 20.0896 13.5667C19.9667 13.4699 19.8978 13.465 18.8702 13.465H17.7786L17.695 12.8938C17.6508 12.584 17.5475 12.1095 17.4639 11.8433C17.2918 11.3011 17.3017 11.3205 17.0312 10.7395L16.8296 10.3184H18.3588C19.8044 10.3184 19.8929 10.3135 20.0453 10.2215C20.3748 10.0182 20.4535 9.69386 20.2568 9.3453C20.0699 9.01611 20.0306 9.01127 17.8376 9.01127H15.9052L15.6004 8.70144C15.2513 8.3432 14.794 7.9414 14.44 7.6945C14.2138 7.53475 13.3533 7.02644 13.3091 7.02644C13.2943 7.02644 13.1665 6.97319 13.0239 6.90541C12.0454 6.46972 10.531 6.19862 9.46399 6.27608L9.00671 6.30996V6.03886V5.76777L18.1769 5.77745L27.3471 5.79197V15.1594ZM11.0227 7.68966C11.4898 7.76228 12.3552 8.04306 12.8174 8.27543C13.6926 8.70628 14.8038 9.68902 15.3447 10.5072C15.5119 10.754 15.6446 10.9864 15.6446 11.0203C15.6446 11.0542 15.6643 11.0929 15.684 11.1026C15.7626 11.1316 16.1265 12.095 16.2642 12.6179C16.3871 13.0971 16.4019 13.2327 16.4019 13.9976C16.4068 15.111 16.2838 15.7064 15.8512 16.6843C15.6643 17.1055 15.1579 17.9043 14.8727 18.2238C13.845 19.3711 12.5715 20.1021 11.0473 20.4265C10.4916 20.5426 9.18864 20.5378 8.61335 20.4216C8.00364 20.2909 7.62503 20.165 7.00549 19.8746C6.15485 19.4728 5.55007 19.0274 4.94528 18.3545C4.51258 17.8704 4.28148 17.5267 3.9668 16.9119C3.55869 16.1131 3.37676 15.4547 3.303 14.5301C3.15549 12.6614 3.83895 10.846 5.19113 9.51958C5.73199 8.98706 6.03193 8.75953 6.64655 8.41582C7.98889 7.6703 9.41973 7.43309 11.0227 7.68966ZM26.4128 25.8775C26.4128 25.8872 25.9556 26.3422 25.395 26.8989L24.3723 27.901L24.3575 27.0684C24.3428 26.1389 24.3575 26.0808 24.6526 25.9404C24.7804 25.8775 24.9722 25.8581 25.6163 25.8581C26.0539 25.8581 26.4128 25.8678 26.4128 25.8775Z"
+                      fill="white"
+                    ></path>
+                    <path
+                      id="Vector_2"
+                      d="M21.904 9.1323C21.486 9.31142 21.427 9.95528 21.8056 10.207C21.963 10.3135 22.0023 10.3184 23.2266 10.3184C24.328 10.3184 24.5051 10.3087 24.6329 10.2361C25.0508 9.99885 25.0312 9.35499 24.5985 9.1323C24.3969 9.03064 22.1449 9.0258 21.904 9.1323Z"
+                      fill="white"
+                    ></path>
+                    <path
+                      id="Vector_3"
+                      d="M21.9138 13.5473C21.5893 13.7216 21.4762 14.012 21.5991 14.3558C21.6483 14.501 21.722 14.5833 21.8646 14.6608C22.0515 14.7673 22.1105 14.7721 23.202 14.7721C24.1363 14.7721 24.3821 14.7576 24.5444 14.6946C25.0115 14.5107 25.0803 13.862 24.6575 13.5812C24.5345 13.4989 24.4067 13.4892 23.2905 13.4795C22.2285 13.465 22.0416 13.4747 21.9138 13.5473Z"
+                      fill="white"
+                    ></path>
+                    <path
+                      id="Vector_4"
+                      d="M21.8203 18.0205C21.4221 18.3255 21.4811 18.9306 21.9236 19.1097C22.0662 19.1678 22.3268 19.1823 23.3102 19.1678C24.4018 19.1533 24.5345 19.1436 24.6574 19.0613C25.0361 18.8096 25.0262 18.2238 24.6427 17.9963C24.5247 17.9285 24.3231 17.9188 23.2266 17.9188C22.0072 17.9188 21.9482 17.9236 21.8203 18.0205Z"
+                      fill="white"
+                    ></path>
+                    <path
+                      id="Vector_5"
+                      d="M17.9015 22.513C17.7294 22.6775 17.7097 22.726 17.7097 22.9341C17.7097 23.1907 17.8523 23.4473 18.0441 23.5296C18.1179 23.5683 19.2045 23.5828 21.3139 23.5828C24.3133 23.5828 24.4804 23.578 24.623 23.4908C24.7902 23.3892 24.9377 23.1278 24.9377 22.9293C24.9377 22.8567 24.8935 22.7211 24.8345 22.6291C24.6329 22.3096 24.7804 22.3242 21.2696 22.3242H18.0933L17.9015 22.513Z"
+                      fill="white"
+                    ></path>
+                    <path
+                      id="Vector_6"
+                      d="M9.23781 8.65788C9.22797 8.68209 9.21322 8.79343 9.20831 8.91446C9.19847 9.03548 9.18372 9.14683 9.17389 9.16135C9.16405 9.18072 9.03621 9.20976 8.89362 9.22428C8.47076 9.27754 7.86105 9.50991 7.51686 9.75196C6.90224 10.1877 6.54822 10.8315 6.54822 11.5238C6.54822 12.6808 7.2661 13.5086 8.67236 13.9734L9.1788 14.138L9.19356 15.3531C9.19847 16.0163 9.18372 16.5633 9.16405 16.5633C9.13947 16.5633 9.00179 16.481 8.85428 16.3745C8.55435 16.1664 8.33308 15.8759 8.19049 15.5322L8.09707 15.295L7.70371 15.324C7.22184 15.3627 6.39579 15.4499 6.31712 15.4741C6.27778 15.4886 6.27778 15.5661 6.33679 15.7742C6.37612 15.9291 6.42529 16.0744 6.44496 16.1034C6.46463 16.1276 6.5138 16.2293 6.54822 16.3213C6.85799 17.1055 7.71354 17.7203 8.78545 17.9188C8.94771 17.9479 9.11488 17.9817 9.15422 17.9963C9.21322 18.0108 9.22306 18.1028 9.21322 18.5191C9.19356 19.1097 9.1493 19.0661 9.83276 19.0419L10.236 19.0274V18.4949V17.9672L10.3736 17.943C11.4554 17.7252 11.9323 17.517 12.424 17.0281C12.9108 16.544 13.1124 16.1179 13.1665 15.4596C13.2206 14.8205 12.9747 14.1234 12.5764 13.7749C12.0798 13.3343 11.7799 13.1891 10.8014 12.9083L10.2605 12.7534L10.2458 11.6303C10.231 10.4055 10.2261 10.4297 10.5261 10.6137C10.7867 10.7686 10.9883 11.0203 11.0522 11.2575C11.0866 11.3931 11.0866 11.3931 11.4111 11.364C12.3994 11.272 12.8223 11.2188 12.8567 11.1898C12.901 11.151 12.719 10.6572 12.5568 10.391C12.3847 10.1054 11.9323 9.71323 11.5734 9.53895C11.2243 9.36952 10.649 9.20492 10.3982 9.20492H10.236V8.91446V8.62399H9.74918C9.47874 8.62399 9.24764 8.63852 9.23781 8.65788ZM9.20339 10.512C9.20831 10.5362 9.20831 10.9816 9.20831 11.4899C9.20831 12.2306 9.19847 12.4291 9.14439 12.4387C9.04113 12.4581 8.63794 12.1822 8.48551 11.9837C8.36258 11.8239 8.34292 11.761 8.34292 11.4754C8.34292 11.1849 8.35767 11.1317 8.49534 10.9622C8.63794 10.7879 9.06571 10.4636 9.15914 10.4636C9.18372 10.4636 9.20339 10.483 9.20339 10.512ZM10.6687 14.5252C10.9391 14.6317 11.1997 14.8351 11.3226 15.0335C11.4505 15.2417 11.4505 15.7258 11.3226 15.9727C11.1554 16.2874 10.7719 16.573 10.413 16.6408L10.236 16.6698V15.5515V14.4333L10.349 14.4381C10.4081 14.4381 10.5506 14.4768 10.6687 14.5252Z"
+                      fill="white"
+                    ></path>
+                  </g>
+                </g>
+                <defs>
+                  <clipPath id="clip0_1552_493">
+                    <rect
+                      width="30"
+                      height="30"
+                      fill="white"
+                      transform="translate(0 0.5)"
+                    ></rect>
+                  </clipPath>
+                </defs>
+              </svg>{" "}
+              <span className="px-2"> FREE Quote</span>
+            </button>
+          </Link>
+        </div>
+      </nav>
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
+        <div className="fixed inset-0 z-10" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+          <div className="flex items-center justify-between">
+            <a href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only"></span>
+              <Image
+                className="h-18 w-auto"
+                style={{ height: "60px" }}
+                src={headerlogo}
+                alt=""
+              />
+            </a>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-gray-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+            </button>
+          </div>
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-gray-500/10">
+              <div className="space-y-4 py-6 flex flex-col">
+                <Link href="/how-to-ship-a-car" className="custom-link">
+                  How it Works
+                </Link>
+
+                <Link href="/services" className="custom-link">
+                  Services
+                </Link>
+                <Link href="/deals" className="custom-link">
+                  Deals
+                </Link>
+                <Link href="/about-us" className="custom-link">
+                  About
+                </Link>
+                {/* <Link href="/blog" className="custom-link">
+                  Blog
+                </Link> */}
+                <Link href="/contact-us" className="custom-link">
+                  Contact Us
+                </Link>
+              </div>
+              <div className="py-6">
+                <Link href="/get-a-quote">
+                  <button
+                    type="button"
+                    className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 getFreeQuotebtn"
+                  >
+                    FREE QUOTE
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Dialog.Panel>
+      </Dialog>
+    </header>
+  );
+}
