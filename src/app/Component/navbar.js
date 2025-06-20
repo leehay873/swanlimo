@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Dialog, Popover } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { usePathname } from "next/navigation";
-import headerlogo from "../../../public/logo/Logo-01.svg";
+// import headerlogo from "../../../public/logo/Logo-01.svg";
 import Image from "next/image";
 
 import {
@@ -221,7 +221,7 @@ export default function Example() {
         <div className="fixed inset-0 z-10" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
+            {/* <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only"></span>
               <Image
                 className="h-18 w-auto"
@@ -229,7 +229,7 @@ export default function Example() {
                 src={headerlogo}
                 alt=""
               />
-            </a>
+            </a> */}
             <button
               type="button"
               className="-m-2.5 rounded-md p-2.5 text-gray-700"
@@ -243,14 +243,14 @@ export default function Example() {
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-4 py-6 flex flex-col">
                 <Link href="/how-to-ship-a-car" className="custom-link">
-                  How it Works
+                  home
                 </Link>
 
                 <Link href="/services" className="custom-link">
                   Services
                 </Link>
                 <Link href="/deals" className="custom-link">
-                  Deals
+                  our fleets
                 </Link>
                 <Link href="/about-us" className="custom-link">
                   About
